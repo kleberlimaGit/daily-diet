@@ -29,7 +29,7 @@ export const Header = styled.View<DietStatusProps>`
 
 export const IconContainer = styled(TouchableOpacity)`
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
   width: 100%;
 `;
 
