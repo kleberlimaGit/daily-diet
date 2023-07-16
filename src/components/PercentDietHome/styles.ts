@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components/native";
 import ArrowUpRight from "phosphor-react-native/src/icons/ArrowUpRight";
 import { TouchableOpacity } from "react-native";
-import theme from "src/theme";
 
 export type DietStatusProps = {
   isDietGood?: boolean;
@@ -30,7 +29,7 @@ export const Title = styled.Text`
 `;
 
 export const Subtitle = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   color: ${({ theme }) => theme.COLORS.GRAY_600};
   margin-bottom: 10px;

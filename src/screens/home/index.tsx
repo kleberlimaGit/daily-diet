@@ -2,6 +2,7 @@ import { PercentDietHome } from "@components/PercentDietHome";
 import { Container, Label } from "./styles";
 import { Header } from "@components/header";
 import { Button } from "@components/button";
+import { Food } from "@components/food";
 
 export default function Home(){
     return (
@@ -10,6 +11,7 @@ export default function Home(){
             <PercentDietHome/>
             <Label>Refeições</Label>
             <Button icon="plus-one" />
+            <Food/>
         </Container>
     )
 }

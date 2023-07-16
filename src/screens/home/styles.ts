@@ -9,6 +9,9 @@ export const Container = styled.View`
   `
 
   export const Label = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.XSM};
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  color: ${({ theme }) => theme.COLORS.GRAY_700};
+  align-self:flex-start;
+  margin-top:40px;
+  margin-bottom: 10px
 `;
