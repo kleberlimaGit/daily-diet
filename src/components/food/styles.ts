@@ -1,24 +1,25 @@
+import { TouchableOpacity } from "react-native";
 import styled, {css} from "styled-components/native";
 
 export type DietStatusProps = {
     isDietGood?: boolean;
   };
 
-export const Container = styled.View`
+export const Container = styled(TouchableOpacity)`
   align-items: center;
   justify-content: center;
   border-radius: 6px;
-  border: 1px solid ${({theme}) => theme.COLORS.GRAY_400}
+  border: 1px solid ${({theme}) => theme.COLORS.GRAY_400};
   width: 100%;
   height: 50px;
   margin-top: 10px;
   flex-direction: row;
   gap: 10px;
-  padding: 0 10px;
+  padding: 0 13px 0 10px;
   `;
 
   export const Time = styled.Text`
-  color: ${({theme}) => theme.COLORS.GRAY_700}
+  color: ${({theme}) => theme.COLORS.GRAY_700};
   font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
   font-weight: bold;
   `

@@ -5,7 +5,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 export const Container = styled(TouchableOpacity)`
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_600};
   width:100%;
   height: 50px;
   border-radius: 6px;

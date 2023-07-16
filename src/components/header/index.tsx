@@ -7,7 +7,6 @@ export function Header(){
     return (
         <Container>
             <Image source={Logo}/>
-            <Image source={Avatar}/>
         </Container>
     )
 }
