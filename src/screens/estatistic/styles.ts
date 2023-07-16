@@ -31,15 +31,15 @@ export const IconContainer = styled(TouchableOpacity)`
   align-items: center;
   justify-content: center;
   width: 100%;
-`
+`;
 
 export const Icon = styled(ArrowLeft).attrs<DietStatusProps>(() => ({
-    size: 25
-  }))`
+  size: 25,
+}))`
   align-self: flex-start;
-  `
+`;
 
-  export const Title = styled.Text`
+export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.XXL}px;
   color: ${({ theme }) => theme.COLORS.GRAY_700};
@@ -50,16 +50,25 @@ export const Subtitle = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   color: ${({ theme }) => theme.COLORS.GRAY_600};
   margin-bottom: 10px;
-`; 
+`;
 
 export const Main = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
-  padding: 24px;
+  padding: 40px 24px 0 24px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   margin-top: -15px;
-`
+  gap: 12px;
+`;
+
+export const DietContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 166px;
+  gap: 12px;
+`;
