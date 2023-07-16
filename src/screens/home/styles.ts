@@ -7,3 +7,8 @@ export const Container = styled.View`
   padding: 24px;
   background-color: ${({theme}) => theme.COLORS.GRAY_100};
   `
+
+  export const Label = styled.Text`
+  font-size: ${({ theme }) => theme.FONT_SIZE.XSM};
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
+`;
