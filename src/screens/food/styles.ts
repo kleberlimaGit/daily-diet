@@ -19,10 +19,31 @@ export const Main = styled.View`
   justify-content: flex-start;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
-  padding: 40px 24px 0 24px;
+  padding: 40px 24px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   margin-top: -15px;
   gap: 12px;
 `;
 
+export const Section = styled.View`
+  flex: 1;
+  width: 100%;
+  gap: 12px;
+`
+
+export const SectionDateHour = styled.View`
+  flex: 1;
+  min-width: 160px;
+  max-width: 165px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+`
+
+export const Label = styled.Text`
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: ${({theme}) => theme.FONT_SIZE.SM}px;
+  color: ${({theme}) => theme.COLORS.GRAY_700};
+`

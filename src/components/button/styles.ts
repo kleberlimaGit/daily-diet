@@ -19,7 +19,7 @@ export const Container = styled(TouchableOpacity)<Props>`
   flex-direction: row;
   gap: 5px;
   border: 1px solid ${({ theme, color }) =>
-    color === "SECONDARY" ? theme.COLORS.GRAY_600 : ''};
+    color === "SECONDARY" ? theme.COLORS.GRAY_600 : 'transparent'};
 `;
 
 export const Title = styled.Text<Props>`
