@@ -13,12 +13,12 @@ export const Container = styled(TouchableOpacity)<DietStatusProps>`
   width: 100%;
   height: 110px;
   border-radius:6px;
-  background-color: ${({ theme }) => theme.COLORS.GREEN_MID};
+  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
 
   ${({ theme, isDietGood }) =>
     !isDietGood &&
     css`
-      background-color: ${({ theme }) => theme.COLORS.RED_MID};
+      background-color: ${({ theme }) => theme.COLORS.RED_LIGHT};
     `}
 `;
 

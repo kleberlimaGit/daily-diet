@@ -34,14 +34,23 @@ export const Section = styled.View`
 
 export const SectionDateHour = styled.View`
   flex: 1;
-  min-width: 160px;
-  max-width: 165px;
+  min-width: 166px;
+  max-width: 166px;
   flex-direction: row;
   align-items: flex-start;
   gap: 12px;
 `
 
+export const AlternativeSection = styled.View`
+  min-width: 165px;
+  max-width: 165px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2px;
+`
+
 export const Label = styled.Text`
+  margin: 14px 0 10px 0;
   align-self: flex-start;
   font-weight: bold;
   font-size: ${({theme}) => theme.FONT_SIZE.SM}px;

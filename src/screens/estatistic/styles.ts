@@ -17,13 +17,13 @@ export const Header = styled.View<DietStatusProps>`
   justify-content: center;
   width: 100%;
   height: 200px;
-  background-color: ${({ theme }) => theme.COLORS.GREEN_MID};
+  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
   padding: 24px;
 
   ${({ theme, isDietGood }) =>
     !isDietGood &&
     css`
-      background-color: ${({ theme }) => theme.COLORS.RED_MID};
+      background-color: ${({ theme }) => theme.COLORS.RED_LIGHT};
     `}
 `;
 

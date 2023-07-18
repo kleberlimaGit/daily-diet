@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import MaskInput from 'react-native-mask-input';
 
 
-export type HeightField = '48px' | '120px'
+export type HeightField = '48px' | '100px'
 
 type Height = {
     height: HeightField;
