@@ -20,7 +20,14 @@ export const Container = styled(TouchableOpacity)<DietStatusProps>`
     css`
       background-color: ${({ theme }) => theme.COLORS.RED_LIGHT};
     `}
+    ${({ theme, isDietGood }) =>
+    isDietGood === undefined &&
+    css`
+      background-color: ${({ theme }) => theme.COLORS.GRAY_300};
+    `}
 `;
+
+
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};

@@ -1,5 +1,6 @@
 import { useTheme } from "styled-components/native";
 import { ColorType, Header, Icon, IconContainer, Title } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {
   color: ColorType;
@@ -7,6 +8,9 @@ interface Props {
 }
 
 export function Head({ color, title }: Props) {
+  
+  const navigation = useNavigation();
+
   const { COLORS } = useTheme();
   function getColor(){
     switch (color) {
@@ -18,9 +22,14 @@ export function Head({ color, title }: Props) {
         return COLORS.RED_DARK;
     }
   }
+
+  function handleGoBack(){
+    navigation.navigate('home')
+  }
+
   return (
     <Header color={color}>
-      <IconContainer>
+      <IconContainer onPress={handleGoBack}>
         <Icon color={getColor()}/>
       </IconContainer>
       <Title>{title}</Title>

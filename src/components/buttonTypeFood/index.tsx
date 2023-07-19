@@ -1,13 +1,14 @@
+import { TouchableProps } from "react-native-svg";
 import { Container, Text, TypeStyleProps, Bullet } from "./styles";
 
 
-interface Props extends TypeStyleProps{
+interface Props extends TypeStyleProps, TouchableProps{
     text:string
 }
 
-export function ButtonTypeFood({text, color, isActive = false}:Props){
+export function ButtonTypeFood({text, color, isActive, ...rest}:Props){
     return (
-        <Container color={color} isActive={isActive}>
+        <Container color={color} isActive={isActive} {...rest}>
             <Bullet color={color}/>
             <Text>{text}</Text>
         </Container>
