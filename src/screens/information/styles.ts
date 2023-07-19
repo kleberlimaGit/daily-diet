@@ -12,7 +12,6 @@ export const Container = styled(SafeAreaView)`
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 24px;
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
 `;
 
@@ -32,13 +31,13 @@ export const Main = styled.View`
 export const Section = styled.View`
   flex: 1;
   width: 100%;
-  gap: 12px;
 `;
 
 export const Title = styled.Text`
   font-weight: bold;
   font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
   color: ${({ theme }) => theme.COLORS.GRAY_700};
+  margin-bottom: 10px;
 `;
 
 export const Text = styled.Text`
@@ -73,6 +72,18 @@ export const Bullet = styled.Text<TypeStyleProps>`
 `;
 
 export const BulletText = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   color: ${({ theme }) => theme.COLORS.GRAY_700};
 `;
+
+export const BulletContainer = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.GRAY_200};
+  border-radius: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 144px;
+  height: 34px;
+  margin-top: 25px
+`
