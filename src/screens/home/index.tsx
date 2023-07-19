@@ -10,7 +10,7 @@ import {
   useNavigation,
   useRoute,
 } from "@react-navigation/native";
-import { getAllDiet, getPercentDiet } from "@storage/diet/Diet";
+import { getAllDiet, getDatesDiet, getPercentDiet } from "@storage/diet/Diet";
 import { useState, useCallback } from "react";
 import { ListEmpty } from "@components/listEmpty";
 
@@ -23,14 +23,11 @@ export default function Home() {
   });
 
   const [diet, setDiet] = useState<DietDTO[]>([]);
+  const [dates, setDates] = useState<string[]>([]);
 
   async function getPercent() {
     const percent = await getPercentDiet();
     setPercent(percent);
-  }
-
-  function handleGoAddNewDiet() {
-    navigation.navigate("food");
   }
 
   async function getDiets() {
@@ -38,10 +35,22 @@ export default function Home() {
     setDiet(data);
   }
 
+  async function getDates() {
+    const datesDiet = await getDatesDiet();
+    setDates(datesDiet);
+  }
+
+  function handleGoAddNewDiet() {
+    navigation.navigate("food");
+  }
+
+
+
   useFocusEffect(
     useCallback(() => {
       getPercent();
       getDiets();
+      getDates();
     }, [])
   );
 
@@ -57,15 +66,16 @@ export default function Home() {
         onPress={handleGoAddNewDiet}
       />
       <FlatList
-        data={diet}
-        keyExtractor={(item) => item.id}
+        data={dates}
+        keyExtractor={(item) => item}
         showsVerticalScrollIndicator={false}
-        renderItem={({item}) => (
-            <FoodList diet={item}/>
-        )}
-        contentContainerStyle={diet.length === 0 && {flex: 1}}
+        renderItem={({ item }) => <FoodList diet={diet} key={item} date={item}/>}
+        contentContainerStyle={[
+          { width: 341, marginBottom: 100},
+          dates.length === 0 && { flex: 1 },
+        ]}
         ListEmptyComponent={() => (
-          <ListEmpty message="Lista de times vazia."/>
+          <ListEmpty message="Lista de dietas vazias." />
         )}
       />
     </Container>

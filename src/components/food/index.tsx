@@ -6,6 +6,7 @@ interface Props extends TouchableOpacityProps {
 }
 
 export function Food({meal}: Props){
+    
     return (
         <Container>
             <Time>{meal.time}</Time>

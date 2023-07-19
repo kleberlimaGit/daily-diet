@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { DIET_COLLECTION } from "@storage/storageConfig";
+import { convertStringToDate } from "@utils/utils";
 
 export async function getAllDiet() {
   try {
@@ -8,7 +9,7 @@ export async function getAllDiet() {
     const diet: DietDTO[] = storage ? JSON.parse(storage) : [];
     return diet.sort(
       (a: DietDTO, b: DietDTO) =>
-        new Date(a.date).getTime() - new Date(b.date).getTime()
+      convertStringToDate(a.date).getTime() - convertStringToDate(b.date).getTime()
     );
   } catch (error) {
     throw error;
@@ -62,11 +63,22 @@ export async function getPercentDiet() {
   else {
     const percentDiet:DietPercent = {
         title: `0%`,
-        subtitle: "Nenhuma dieta Cadastrada no momento.",
+        subtitle: "Nenhuma dieta cadastrada no momento.",
     }
     return percentDiet
   }
 } catch (error) {
     throw error;
   }
+}
+
+export async function getDatesDiet(){
+  const storage = await getAllDiet();
+  const dates: string[] = [];
+  storage.forEach(d => {
+    if(!dates.includes(d.date)){
+      dates.push(d.date);
+    }
+  })
+  return dates;
 }

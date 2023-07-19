@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components/native";
 import ArrowLeft from "phosphor-react-native/src/icons/ArrowLeft";
 import { TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export type DietStatusProps = {
   isDietGood?: boolean;

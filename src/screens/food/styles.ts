@@ -1,13 +1,11 @@
-import styled, { css } from "styled-components/native";
-import ArrowLeft from "phosphor-react-native/src/icons/ArrowLeft";
-import { TouchableOpacity } from "react-native";
+import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export type DietStatusProps = {
   isDietGood?: boolean;
 };
 
-export const Container = styled(SafeAreaView)`
+export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;

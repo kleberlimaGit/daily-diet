@@ -8,7 +8,8 @@ export const Container = styled.View`
 
 export const Message = styled.Text`
   text-align: center;
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
+  color: ${({ theme }) => theme.COLORS.GRAY_700};
+  font-weight: bold;
 `;
