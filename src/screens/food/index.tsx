@@ -2,7 +2,6 @@ import { Header } from "@components/head/styles";
 import {
   Container,
   Main,
-  Section,
   AlternativeSection,
   SectionDateHour,
   Label,
@@ -10,30 +9,31 @@ import {
 import { Head } from "@components/head";
 import { Input } from "@components/input";
 import { Masks } from "react-native-mask-input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@components/button";
 import { ScrollView, Alert } from "react-native";
 import { ButtonTypeFood } from "@components/buttonTypeFood";
-import { addDiet } from "@storage/diet/Diet";
-import { useNavigation } from "@react-navigation/native";
+import { addDiet, getById } from "@storage/diet/Diet";
+import { useNavigation, useRoute } from "@react-navigation/native";
+
+
+interface RouteParams {
+  idDiet?: string;
+}
+
 
 export default function Food() {
   const navigation = useNavigation();
+  const route = useRoute();
+  const { idDiet } = route.params as RouteParams;
 
   const [date, setDate] = useState("");
   const [hour, setHour] = useState("");
   const [name, setName] = useState("");
+  const [id, setId] = useState("");
   const [description, setDescription] = useState("");
   const [isGood, setIsGood] = useState(false);
   const [isBad, setIsBad] = useState(false);
-  const [data, setData] = useState<DietDTO>({
-    date: date,
-    time: hour,
-    name: name.trim(),
-    description: description.trim(),
-    isDietGood: false,
-    id: "",
-  });
 
   const HOUR_MASK = [/\d/, /\d/, ":", /\d/, /\d/];
 
@@ -55,6 +55,22 @@ export default function Food() {
     }
   }
 
+  async function getDietById(){
+    if(idDiet){
+      const dto = await getById(idDiet);
+      setDate(dto!.date)
+      setHour(dto!.time)
+      setName(dto!.name)
+      setDescription(dto!.description)
+      if(dto!.isDietGood){
+        setIsGood(true)
+      }else{
+        setIsBad(true)
+      }
+      setId(idDiet)
+    }
+  }
+
   async function handAddNewDiet() {
     if (!isGood && !isBad) {
       return Alert.alert("Dieta", "Selecione o tipo da Dieta");
@@ -68,7 +84,7 @@ export default function Food() {
     ) {
       
       try {
-        await addDiet({date, name, description, time:hour, isDietGood: isGood, id: new Date().getTime().toString()});
+        await addDiet({date, name, description, time:hour, isDietGood: isGood, id});
         navigation.navigate("finish", {isGood});
       } catch (error) {
         return Alert.alert(
@@ -79,9 +95,13 @@ export default function Food() {
     }
   }
 
+  useEffect(() => {
+    getDietById()
+  },[])
+
   return (
     <Container>
-      <Head color="GRAY" title="Nova refeição" />
+      <Head color="GRAY" title={idDiet ? 'Editar refeição' : 'Nova refeição'} />
       <Main>
         <ScrollView style={{ width: "100%" }}>
           <Input

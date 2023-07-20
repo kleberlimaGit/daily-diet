@@ -1,14 +1,17 @@
 export declare global {
-    namespace ReactNavigation {
-      interface RootParamList {
-        home: undefined;
-        food: undefined;
-        estatistic: undefined;
-        information: undefined;
-        finish: {
-          isGood:boolean
-        };
-        
+  namespace ReactNavigation {
+    interface RootParamList {
+      home: undefined;
+      food: {
+        idDiet?: string;
       }
+      estatistic: undefined;
+      information: {
+        id: string;
+      };
+      finish: {
+        isGood: boolean;
+      };
     }
   }
+}

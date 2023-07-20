@@ -41,7 +41,7 @@ export default function Home() {
   }
 
   function handleGoAddNewDiet() {
-    navigation.navigate("food");
+    navigation.navigate("food",{ });
   }
 
 

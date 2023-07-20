@@ -13,7 +13,7 @@ export function FoodList({ diet, date }: Props) {
     <Container>
       <DateText>{format(convertStringToDate(date), "dd.MM.yy")}</DateText>
       {diet.filter(x => x.date === date).map((x) => {
-        return <Food key={x.id} meal={x} />;
+        return <Food key={x.id} meal={x}/>;
       })}
     </Container>
   );

@@ -7,20 +7,42 @@ export async function getAllDiet() {
   try {
     const storage = await AsyncStorage.getItem(DIET_COLLECTION);
     const diet: DietDTO[] = storage ? JSON.parse(storage) : [];
-    return diet.sort(
-      (a: DietDTO, b: DietDTO) =>
-        convertStringToDate(b.date).getTime() -
-        convertStringToDate(a.date).getTime()
-    );
+    if (diet.length > 0) {
+      return diet.sort(
+        (a: DietDTO, b: DietDTO) =>
+          convertStringToDate(b.date).getTime() -
+          convertStringToDate(a.date).getTime()
+      );
+    }
+    return [];
   } catch (error) {
     throw error;
   }
 }
 
+export async function getById(id: string) {
+  const storage = await getAllDiet();
+  const diet = storage.find((x) => x.id === id);
+  return diet;
+}
+
 export async function addDiet(diet: DietDTO) {
   try {
-    const storageDiet = await getAllDiet();
-    const storage = JSON.stringify([...storageDiet, diet]);
+    let storageDiet = await getAllDiet();
+    let storage: string = "";
+    if (diet.id) {
+      storageDiet = storageDiet.map((x) => {
+        if (x.id === diet.id) {
+          x = diet;
+          return x;
+        } else return x;
+      });
+
+      storage = JSON.stringify([...storageDiet]);
+    } else {
+      diet.id = new Date().getTime().toString();
+      storage = JSON.stringify([...storageDiet, diet]);
+    }
     await AsyncStorage.setItem(DIET_COLLECTION, storage);
   } catch (error) {
     throw error;

@@ -1,14 +1,14 @@
-import { TouchableOpacityProps } from "react-native"
 import { Bullet, Container, Divider, Meal, Time } from "./styles"
+import { useNavigation } from "@react-navigation/native";
 
-interface Props extends TouchableOpacityProps {
+interface Props {
     meal: DietDTO;
 }
-
 export function Food({meal}: Props){
+    const navigation = useNavigation();
     
     return (
-        <Container>
+        <Container onPress={() => {navigation.navigate("information", {id: meal.id!});}}>
             <Time>{meal.time}</Time>
             <Divider>|</Divider>
             <Meal numberOfLines={1} ellipsizeMode="tail">{meal.description}</Meal>
