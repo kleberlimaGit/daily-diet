@@ -2,7 +2,7 @@ import { ColorType, Container, Info, Quantity } from "./styles";
 
 interface Props {
   color: ColorType;
-  quantity: string;
+  quantity: number;
   info: string;
 }
 

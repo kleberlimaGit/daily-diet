@@ -5,7 +5,9 @@ export declare global {
         food: undefined;
         estatistic: undefined;
         information: undefined;
-        finish: undefined;
+        finish: {
+          isGood:boolean
+        };
         
       }
     }

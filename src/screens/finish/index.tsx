@@ -3,17 +3,41 @@ import { ButtonContainer, Container, StrongText, Title } from "./styles";
 import GoodFood from "@assets/goodfood.png";
 import NotGoodFood from "@assets/notgoodfood.png";
 import { Button } from "@components/button";
+import { useNavigation, useRoute } from "@react-navigation/native";
+
+interface RouteParam {
+  isGood: boolean;
+}
 
 export default function Finish() {
+  const route = useRoute();
+  const navigation = useNavigation();
+
+  const { isGood } = route.params as RouteParam;
+
+  function goBackHome() {
+    navigation.navigate("home");
+  }
+
   return (
     <Container>
-      <Title color="PRIMARY">Continue Assim</Title>
-      <Text>
-        Você continua <StrongText>dentro da dieta. </StrongText>Muito bem!
+      <Title color={isGood ? "PRIMARY" : "SECONDARY"}>Continue Assim</Title>
+      <Text style={{textAlign:"center"}}>
+        {isGood ? "Você continua " : "Você "}
+        <StrongText>
+          {isGood ? "dentro da dieta. " : "saiu da dieta "}
+        </StrongText>
+        {isGood
+          ? "Muito bem!"
+          : "dessa vez, mas continue se esforçando e não desista!"}
       </Text>
-      <Image source={GoodFood} style={{ marginTop: 30, marginBottom: 30 }} />
+      <Image source={isGood ? GoodFood : NotGoodFood} style={{ marginTop: 30, marginBottom: 30 }} />
       <ButtonContainer>
-        <Button buttonType="PRIMARY" title="Ir para a página inicial" />
+        <Button
+          buttonType="PRIMARY"
+          title="Ir para a página inicial"
+          onPress={goBackHome}
+        />
       </ButtonContainer>
     </Container>
   );

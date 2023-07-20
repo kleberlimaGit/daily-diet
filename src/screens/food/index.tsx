@@ -69,7 +69,7 @@ export default function Food() {
       
       try {
         await addDiet({date, name, description, time:hour, isDietGood: isGood, id: new Date().getTime().toString()});
-        navigation.navigate("home");
+        navigation.navigate("finish", {isGood});
       } catch (error) {
         return Alert.alert(
           "Erro!",
