@@ -49,7 +49,7 @@ export async function addDiet(diet: DietDTO) {
   }
 }
 
-export async function RemoveDiet(id: string) {
+export async function removeDiet(id: string) {
   try {
     const storage = await getAllDiet();
     const newStorage = storage.filter((item) => item.id !== id);

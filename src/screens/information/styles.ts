@@ -87,3 +87,25 @@ export const BulletContainer = styled.View`
   height: 34px;
   margin-top: 25px
 `
+
+export const ModalContainer = styled.View`
+  align-self: center;
+  background-color: ${({theme}) => theme.COLORS.GRAY_100};
+  width: 327px;
+  height: 192px;
+  border-radius: 8px;
+  padding: 16px;
+  justify-content: space-between;
+`
+
+export const ModalText = styled.Text`
+  text-align: center;
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  font-weight: bold;
+
+`
+export const ModalButtonContainer = styled.View`
+  flex-direction: row;
+  gap: 6px;
+  width: 145px;
+`
