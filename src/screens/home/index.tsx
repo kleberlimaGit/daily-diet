@@ -82,7 +82,7 @@ export default function Home() {
           <FoodList diet={diet} key={item} date={item} />
         )}
         contentContainerStyle={[
-          { width: 341, marginBottom: 100, marginTop: 10, paddingBottom: 50 },
+          { marginBottom: 100, marginTop: 10, paddingBottom: 50 },
           dates.length === 0 && { flex: 1 },
         ]}
         ListEmptyComponent={() => (
