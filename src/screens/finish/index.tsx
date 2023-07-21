@@ -21,7 +21,7 @@ export default function Finish() {
 
   return (
     <Container>
-      <Title color={isGood ? "PRIMARY" : "SECONDARY"}>Continue Assim</Title>
+      <Title color={isGood ? "PRIMARY" : "SECONDARY"}>{isGood ? "Continue assim!" : "Que pena!"}</Title>
       <Text style={{textAlign:"center"}}>
         {isGood ? "Você continua " : "Você "}
         <StrongText>

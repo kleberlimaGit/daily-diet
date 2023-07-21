@@ -41,10 +41,14 @@ export default function Home() {
   }
 
   function handleGoAddNewDiet() {
-    navigation.navigate("food",{ });
+    navigation.navigate("food", {});
   }
 
-
+  function handleGoToEstatistic() {
+    if (percent.isPercentGood !== undefined) {
+      navigation.navigate("estatistic");
+    }
+  }
 
   useFocusEffect(
     useCallback(() => {
@@ -57,7 +61,12 @@ export default function Home() {
   return (
     <Container>
       <LogoContainer />
-      <PercentDietHome percent={percent} onPress={() => {navigation.navigate('estatistic')}} />
+      <PercentDietHome
+        percent={percent}
+        onPress={() => {
+          handleGoToEstatistic;
+        }}
+      />
       <Label>Refeições</Label>
       <Button
         icon="add"
@@ -69,9 +78,11 @@ export default function Home() {
         data={dates}
         keyExtractor={(item) => item}
         showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => <FoodList diet={diet} key={item} date={item}/>}
+        renderItem={({ item }) => (
+          <FoodList diet={diet} key={item} date={item} />
+        )}
         contentContainerStyle={[
-          { width: 341, marginBottom: 100, marginTop: 10, paddingBottom:50},
+          { width: 341, marginBottom: 100, marginTop: 10, paddingBottom: 50 },
           dates.length === 0 && { flex: 1 },
         ]}
         ListEmptyComponent={() => (

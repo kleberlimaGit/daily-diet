@@ -127,6 +127,7 @@ export default function Food() {
               mask={Masks.DATE_DDMMYYYY}
               value={date}
               onChangeText={setDate}
+              keyboardType="number-pad"
             />
             <Input
               height="48px"
@@ -134,6 +135,7 @@ export default function Food() {
               mask={HOUR_MASK}
               value={hour}
               onChangeText={setHour}
+              keyboardType="number-pad"
             />
           </SectionDateHour>
 
